@@ -28,7 +28,7 @@ switch (global.state){
 			if(prize == true){
 				sprite_index = sprite6;
 			}
-			else if(player != true){
+			else if(player != true && atk != true){
 				sprite_index = sprite3;	
 			}
 		
@@ -57,7 +57,9 @@ switch (global.state){
 		else{ //if atk spawn tile
 			if(atkclear){
 				global.state = global.state_pass;
+				//show_debug_message("EEEEEEEEEEEEEEEEEEE");
 			}
+			break;
 			
 		}
 		
@@ -72,38 +74,27 @@ switch (global.state){
 			movey = 0;	
 		}
 		
-		 
-		if(atk == true && global.onbeat){
-			show_debug_message(string(xpos) + string(ypos));
-			
+		if(atk == true && global.beat_valid){
+			//show_debug_message(string(xpos) + string(ypos));
 			var tile = global.grid[xpos+atk_movex, ypos+atk_movey];
-			show_debug_message("tilenext: "+string(tile.xpos) +string(tile.ypos));
+			if(tile.atk_tile == false){
+				tile.atk = true;
 			
-			tile.atk = true;
-			show_debug_message(tile.atk);
-			if(atk_tile == false && xpos < 14 && xpos > 1 && ypos > 1 && ypos < 14){
+				show_debug_message("KILLME")
 				tile.atk_movex = atk_movex;
 				tile.atk_movey = atk_movey;
 				tile.receive = true;
-			}
-			else if(atk_tile == true){
-				tile.atk_movex = atk_movex;
-				tile.atk_movey = atk_movey;
-				tile.receive = true;
-			}
-			else{
-				tile.atk = false;
-			}
+				if(atk_tile == false){
+					atk = false;
+					atk_movex = 0;
+					atk_movey = 0;
+				}
+			}			
 			
-			if(atk_tile == false){
-				atk = false;
-				atk_movex = 0;
-				atk_movey = 0;
-			}
-			else{
-				atkclear = false;
-			}
+			atkclear = false;
+			
 			global.onbeat = false;
+			//show_debug_message("x"+string(tile.atk_movex) +"tilexpos" + string(tile.atk_movey));
 		}
 		
 		if(global.beat_valid || receive == true){ // delay resets - receive to update sprites upon sending messages

@@ -17,5 +17,8 @@ if(delay == 0){
 	atker.atkclear = true;
 	global.onbeat = true;
 }
+else{
+	global.onbeat = false;	
+}
 
 delay--;
