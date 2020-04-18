@@ -7,6 +7,7 @@ global.prize_tracker = noone;
 
 global.score_tracker = 0;
 global.grid[0,0] = 0;
+global.atk_list = ds_list_create(); // list of atk tiles
 
 tile_size = 59;
 for(i = 0; i<num_tiles; i++){
@@ -20,44 +21,76 @@ for(i = 0; i<num_tiles; i++){
 			tile.atk_tile = true;
 			tile.sprite_index = sprite0;
 			tile.image_index = 0;
+			tile.atk_movex = 1;
+			tile.atk_movey = 0;
+			tile.atk = true;
+			ds_list_add(global.atk_list,tile);
 		}
 		else if(j == 0 && i==0){
 			tile.atk_tile = true;
 			tile.sprite_index = sprite0;
 			tile.image_index = 4;
+			tile.atk_movex = 1;
+			tile.atk_movey = 1;
+			tile.atk = true;
+			ds_list_add(global.atk_list,tile);
 		}
 		else if(j == 0 && i==15){
 			tile.atk_tile = true;
 			tile.sprite_index = sprite0;
 			tile.image_index = 5;
+			tile.atk_movex = 1;
+			tile.atk_movey = -1;
+			tile.atk = true;
+			ds_list_add(global.atk_list,tile);
 		}
 		
 		if(j == 15 && (i!=0 && i!=15)){ //right column
 			tile.atk_tile = true;
 			tile.sprite_index = sprite0;
 			tile.image_index = 2;
+			tile.atk_movex = -1;
+			tile.atk_movey = 0;
+			tile.atk = true;
+			ds_list_add(global.atk_list,tile);
 		}
 		else if(j == 15 && i==0){
 			tile.atk_tile = true;
 			tile.sprite_index = sprite0;
 			tile.image_index = 7;
+			tile.atk_movex = -1;
+			tile.atk_movey = 1;
+			tile.atk = true;
+			ds_list_add(global.atk_list,tile);
 		}
 		else if(j == 15 && i==15){
 			tile.atk_tile = true;
 			tile.sprite_index = sprite0;
 			tile.image_index = 6;
+			tile.atk_movex = -1;
+			tile.atk_movey = -1;
+			tile.atk = true;
+			ds_list_add(global.atk_list,tile);
 		}
 		
 		if(i == 0 && (j!=0 && j!= 15)){ //top row
 			tile.atk_tile = true;
 			tile.sprite_index = sprite0;
 			tile.image_index = 1;
+			tile.atk_movex = 0;
+			tile.atk_movey = 1;
+			tile.atk = true;
+			ds_list_add(global.atk_list,tile);
 		}
 		
 		if(i == 15 && (j!=0 && j!= 15)){ //bottom row
 			tile.atk_tile = true;
 			tile.sprite_index = sprite0;
 			tile.image_index = 3;
+			tile.atk_movex = 0;
+			tile.atk_movey = -1;
+			tile.atk = true;
+			ds_list_add(global.atk_list,tile);
 		}
 		
 	}

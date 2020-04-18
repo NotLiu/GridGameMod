@@ -15,6 +15,8 @@ atk_movey = 0;
 xpos = 0;
 ypos = 0;
 
+atkclear = false;
+
 global.state_neutral = 0;
 global.state_check = 0; //check if player on tile, check if atk on tile, check if reward
 global.state_pass = 1;

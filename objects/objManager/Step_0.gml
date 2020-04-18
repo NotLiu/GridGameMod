@@ -13,4 +13,4 @@ if(keyboard_check(ord("3")) && keyboard_check(ord("6"))){
 	game_restart();	
 }
 
-show_debug_message(global.score_tracker);
+//show_debug_message(global.score_tracker);

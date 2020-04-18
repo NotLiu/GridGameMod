@@ -7,7 +7,6 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
 if(position_meeting(mouse_x,mouse_y,id)){
-	show_debug_message("EEEEEEEEE");
 	draw_text_transformed_color(x,y,text,1.2,1.2,0,$5B14EE,$5B14EE,$5B14EE,$5B14EE,1);
 }
 else{

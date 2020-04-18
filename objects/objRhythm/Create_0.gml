@@ -7,6 +7,7 @@ delay = room_speed/(bpm/60);
 orb = noone;
 beat = 1;
 
+global.onbeat = false;
 global.beat_valid = false;
 
 frames_valid = 5; //times 2 for below and above
