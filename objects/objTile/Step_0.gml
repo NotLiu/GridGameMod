@@ -8,6 +8,7 @@ switch (global.state){
 				prize = false;
 				global.score_tracker += 1;
 				global.prize_tracker = noone;
+				audio_play_sound(snd_win,10, 0);
 			}
 			if(player == true && atk == true){
 				global.state = global.state_end;	
@@ -65,6 +66,7 @@ switch (global.state){
 		
 	case global.state_pass:
 		if((movex != 0 || movey != 0) && player == true){
+			audio_play_sound(card, 10 ,0);
 			player = false;
 			var tile = global.grid[xpos+movex, ypos+movey];
 			tile.player = true;
@@ -74,7 +76,7 @@ switch (global.state){
 			movey = 0;	
 		}
 		
-		if(atk == true && global.beat_valid){
+		/*if(atk == true && global.beat_valid){
 			//show_debug_message(string(xpos) + string(ypos));
 			var tile = global.grid[xpos+atk_movex, ypos+atk_movey];
 			if(tile.atk_tile == false){
@@ -95,7 +97,7 @@ switch (global.state){
 			
 			global.onbeat = false;
 			//show_debug_message("x"+string(tile.atk_movex) +"tilexpos" + string(tile.atk_movey));
-		}
+		}*/
 		
 		if(global.beat_valid || receive == true){ // delay resets - receive to update sprites upon sending messages
 			global.state = global.state_check;

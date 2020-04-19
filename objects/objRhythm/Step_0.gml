@@ -16,6 +16,7 @@ if(delay == 0){
 	var atker = ds_list_find_value(global.atk_list, irandom_range(0,ds_list_size(global.atk_list)-1));
 	atker.atkclear = true;
 	global.onbeat = true;
+	audio_play_sound(wall, 10, 0);
 }
 else{
 	global.onbeat = false;	
